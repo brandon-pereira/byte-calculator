@@ -1,0 +1,26 @@
+{
+  "name": "byte-calculator",
+  "version": "1.0.0",
+  "description": "Calculate the size of a string in style",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html -d ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandon-pereira/byte-calculator.git"
+  },
+  "author": "brandon-pereira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandon-pereira/byte-calculator/issues"
+  },
+  "homepage": "https://github.com/brandon-pereira/byte-calculator#readme",
+  "devDependencies": {
+    "parcel": "^1.12.4"
+  },
+  "dependencies": {
+    "bytes": "^3.1.0"
+  }
+}

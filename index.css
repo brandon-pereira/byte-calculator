@@ -1,0 +1,65 @@
+html {
+  height: 100%;
+  font-size: 16px;
+}
+body {
+  margin: 0;
+  background: #212121;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  grid-template-columns: 1fr;
+  height: 100%;
+}
+
+.header--container {
+  padding: 2rem;
+}
+.header--container h1 {
+  margin: 0;
+}
+.header--container p {
+  margin: 0;
+}
+
+.text--container {
+  font-size: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+textarea {
+  resize: none;
+  background: #d8d8d8;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  appearance: none;
+  font-family: "Fira Code", monospace;
+  padding: 2rem;
+  font-size: 1.4rem;
+}
+.output--container {
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+.output--size {
+  background: #b61ba0;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: "Fira Code", monospace;
+  display: flex;
+  justify-content: space-between;
+}
+.output--size span:last-of-type {
+  font-weight: 100;
+}
