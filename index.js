@@ -1,9 +1,10 @@
-import bytes from "bytes";
-
 const $input = document.querySelector("[data-input]");
 const $rawBytes = document.querySelector("[data-raw-bytes]");
 const $formattedSize = document.querySelector("[data-formatted-bytes]");
 const $formattedUnit = document.querySelector("[data-formatted-unit]");
+
+// over-engineered but I wanted to try web workers :D
+const stringToSize = new Worker("worker.js");
 
 render();
 $input.addEventListener("keyup", (e) => {
@@ -15,7 +16,10 @@ $input.addEventListener("focus", (e) => {
 });
 
 function render() {
-  updateUI(bytesToSize(stringToBytes($input.value)));
+  stringToSize.postMessage($input.value);
+  stringToSize.onmessage = (e) => {
+    updateUI(e.data);
+  };
 }
 
 function formatNumber(num) {
@@ -26,21 +30,4 @@ function updateUI(size) {
   $rawBytes.innerText = formatNumber(size.bytes);
   $formattedSize.innerText = size.formattedSize;
   $formattedUnit.innerText = size.formattedUnit;
-}
-
-function bytesToSize(_bytes) {
-  const [formattedSize, formattedUnit] = bytes(_bytes, {
-    unitSeparator: ":",
-    thousandsSeparator: ",",
-  }).split(":");
-
-  return {
-    bytes: _bytes,
-    formattedSize,
-    formattedUnit,
-  };
-}
-
-function stringToBytes(str) {
-  return new Blob([str]).size;
 }
