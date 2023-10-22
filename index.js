@@ -4,7 +4,9 @@ const $formattedSize = document.querySelector("[data-formatted-bytes]");
 const $formattedUnit = document.querySelector("[data-formatted-unit]");
 
 // over-engineered but I wanted to try web workers :D
-const stringToSize = new Worker("worker.js");
+const stringToSize = new Worker(new URL("worker.js", import.meta.url), {
+  type: "module",
+});
 
 render();
 $input.addEventListener("keyup", (e) => {
