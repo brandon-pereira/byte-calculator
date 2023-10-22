@@ -4,7 +4,7 @@
   "description": "Calculate the size of a string in style",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html -d ./dist"
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
